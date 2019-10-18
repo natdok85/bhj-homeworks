@@ -1,5 +1,5 @@
 const addTime = function() {
-  const timer = document.getElementById("timer");  
+  const timer = document.getElementById("timer");    
   timer.textContent -=1;
   if(timer.textContent < 0) {
     alert("Вы победили в конкурсе!");  
@@ -7,5 +7,5 @@ const addTime = function() {
   };
 };
 
-setInterval(addTime, 500);
+setInterval(addTime, 250);
 
