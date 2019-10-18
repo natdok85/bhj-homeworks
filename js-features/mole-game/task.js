@@ -20,7 +20,7 @@ for(let index = 1; index < 10; index++) {
         };
     
         if(lostNum >= 5) {
-            alert("Вы проиграли");
+            alert("Вы проиграли!");
             deadNum = 0;
             deadCounter.textContent = 0;
             lostNum = 0;
@@ -29,7 +29,7 @@ for(let index = 1; index < 10; index++) {
         };
     
         if(lostNum < 5 && deadNum == 10) {
-            alert("Вы выиграли");
+            alert("Вы выиграли!");
             deadNum = 0;
             deadCounter.textContent = 0;
             lostNum = 0;
