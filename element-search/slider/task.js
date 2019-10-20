@@ -1,36 +1,48 @@
-let items = document.getElementsByClassName('slider__item');
-let allItems = Array.from(items);
-let itemsNumber = allItems.length;
+let items = Array.from(document.getElementsByClassName('slider__item'));
+console.log(items);
+let itemsNumber = items.length;
 
-let right = document.getElementsByClassName('slider__arrow_next');
-let rightA = Array.from(right);
-let rightArrow = rightA[0];
+let nextArrow = Array.from(document.getElementsByClassName('slider__arrow_next'));
+let prevArrow = Array.from(document.getElementsByClassName('slider__arrow_prev'));
 
-let i = 1;
-rightArrow.onclick = function() {     
-    if(i > itemsNumber) {
-        i = 0;
-    };       
-    allItems[i].classList.add('slider__item_active'); 
-    allItems[i-1].classList.remove('slider__item_active');          
-    i++;        
-};
 
-let left = document.getElementsByClassName('slider__arrow_prev');
-let leftA = Array.from(left);
-let leftArrow = leftA[0];
+    nextArrow[0].onclick = function() {
 
-let index = itemsNumber-1;
-leftArrow.onclick = function() {
-    
-    allItems[index].classList.remove('slider__item_active');
-    allItems[index-1].classList.add('slider__item_active');
-    index--;  
-    if(index < 0) {
-        index = itemsNumber;
-    } else if(index > itemsNumber) {
-        index = 0;
-    };      
-};
+        let activeItem = document.querySelector('.slider__item_active');
+        let activeItemNumber = items.indexOf(activeItem);                             
 
+        activeNumber = function() {
+            return items.indexOf(activeItem);
+        };                  
+
+        if(activeItemNumber === itemsNumber-1) {
+            items[activeItemNumber].classList.remove('slider__item_active');           
+            items[0].classList.add('slider__item_active'); 
+           
+        };
+        items[activeItemNumber].classList.remove('slider__item_active');  
+        activeItemNumber++;
+        items[activeItemNumber].classList.add('slider__item_active');                          
+      
+    };
+
+    prevArrow[0].onclick = function() {
+
+        
+        let activeItem = document.querySelector('.slider__item_active');
+        let activeItemNumber = items.indexOf(activeItem);                  
+
+        activeNumber = function() {
+            return items.indexOf(activeItem);
+        };
+
+        if(activeItemNumber === 0) {
+            items[activeItemNumber].classList.remove('slider__item_active');          
+            items[itemsNumber-1].classList.add('slider__item_active'); 
+        };
+        items[activeItemNumber].classList.remove('slider__item_active');  
+        activeItemNumber--;
+        items[activeItemNumber].classList.add('slider__item_active');                                  
+      
+    };
 
