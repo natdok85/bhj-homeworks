@@ -16,23 +16,19 @@ class Game {
     this.lossElement.textContent = 0;
   }
 
-  registerEvents() {
-    let currentSymbol = (this.currentSymbol.textContent).toLowerCase();
-    function getKey(event) {
-      
-      let entered = event.key;
-      let enteredSymbol = entered.toLowerCase();
-      if(enteredSymbol === currentSymbol) {        
-        console.log('yes');
-        this.success();
-      } else {
-        console.log('NO');  
-        this.fail();      
-      };
-      }
-      document.addEventListener('keydown', getKey);
-     
-    
+  registerEvents() {        
+      document.addEventListener('keydown', (event) => {  
+        let currentSymbol = (this.currentSymbol.textContent).toLowerCase();        
+        let enteredSymbol = event.key.toLowerCase();        
+        if(enteredSymbol === currentSymbol) {               
+          this.success();
+          } else {            
+            this.fail();      
+        };
+        });
+
+        }
+         
     
     /*
       TODO:
@@ -41,7 +37,7 @@ class Game {
       В случае правильного ввода слова вызываем this.success()
       При неправильном вводе символа - this.fail();
      */
-  }
+  
 
   success() {
     this.currentSymbol.classList.add('symbol_correct');
