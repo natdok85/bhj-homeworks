@@ -1,3 +1,4 @@
+
 function rotate() {
     let ads = Array.from(document.getElementsByClassName('rotator__case'));    
     let active = document.querySelector('.rotator__case_active');
@@ -10,7 +11,10 @@ function rotate() {
     
     active.classList.remove('rotator__case_active');  
    
-    active.nextElementSibling.classList.add('rotator__case_active');  
+    active.nextElementSibling.classList.add('rotator__case_active');   
+    
+    active.style.color = active.dataset.color;
+   
     
 }
 
