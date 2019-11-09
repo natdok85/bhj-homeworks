@@ -1,14 +1,22 @@
 let buttons = Array.from(document.getElementsByClassName('font-size'));
 let page = document.querySelector('.book');
 
-function onclick() {
-    buttons[1].classList.remove('font-size_active');    
-    this.classList.add('font-size_active');       
-    let size = this.dataset.size;
-    page.classList.add('font-size_'+size); 
-    
-};
+for(let button of buttons) {    
+    button.addEventListener('click', function(event) {    
+        for(let button of buttons) {
+            button.classList.remove('font-size_active');            
+        };
+        page.classList.remove('book_fs-small');
+        page.classList.remove('book_fs-big');
+        event.target.classList.add('font-size_active');           
+        if(event.target.classList.contains('font-size_small')) {
+            page.classList.add('book_fs-small'); 
+            
+        } else if(event.target.classList.contains('font-size_big')) {
+            page.classList.add('book_fs-big'); 
 
-for(let button of buttons) {
-    button.addEventListener('click', onclick);    
+        };        
+        
+        event.preventDefault(); 
+    });     
 }
