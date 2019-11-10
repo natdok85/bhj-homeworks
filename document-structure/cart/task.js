@@ -56,13 +56,9 @@ for(let deleteButton of deleteButtons) {
 for(let addItem of addItems) {
     addItem.addEventListener('click', event => {
         item = event.target.closest('.product');
-        let image = item.getElementsByTagName('img');
-        let count = item.getElementsByClassName('product__quantity-value')[0].textContent;
-      
-        
-        cartProduct.insertAdjacentHTML('beforeend', `<div class="cart__product" data-id="${item.dataset.id}"><img class="cart__product-image" src="image.png"><div class="cart__product-count">${count}</div></div>`);
-
-               
+        let image = Array.from(item.getElementsByTagName('img'))[0].getAttribute('src');        
+        let count = item.getElementsByClassName('product__quantity-value')[0].textContent;        
+        cartProduct.insertAdjacentHTML('beforeend', `<div class="cart__product" data-id="${item.dataset.id}"><img class="cart__product-image" src=${image}><div class="cart__product-count">${count}</div></div>`);               
        
     })
 }
