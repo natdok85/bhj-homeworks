@@ -63,8 +63,8 @@ for(let addItem of addItems) {
         if(addedItems.includes(item.dataset.id)) {            
             let cartElements = Array.from(cartProduct.querySelectorAll('.cart__product'));
             for(let cartElement of cartElements) {
-                if(cartElement.dataset.id === item.dataset.id) {                    
-                    cartElement.querySelector('.cart__product-count').textContent = count;
+                if(cartElement.dataset.id === item.dataset.id) {   
+                    cartElement.querySelector('.cart__product-count').textContent = parseInt(cartElement.querySelector('.cart__product-count').textContent, 10) + parseInt(count, 10);
                 }
             }            
 
