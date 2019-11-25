@@ -12,9 +12,10 @@ xhr.addEventListener('readystatechange', event => {
         let currencies = data.response.Valute;
         let values = Array.from(Object.values(currencies));
         
-        let item = document.querySelector('.item');
+        let items = document.querySelector('#items');
         for(let i = 0; i < values.length; i++) {
-            item.insertAdjacentHTML('beforeend', `          
+            items.insertAdjacentHTML('beforeend', `   
+            <div class="item">       
             <div class="item__code">
                 ${values[i].CharCode}
             </div>
@@ -23,6 +24,7 @@ xhr.addEventListener('readystatechange', event => {
             </div>
             <div class="item__currency">
                 руб.
+            </div>
             </div>
             
             `);
